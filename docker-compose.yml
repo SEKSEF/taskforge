@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   db:
     image: postgres:17
@@ -21,7 +19,7 @@ services:
     ports:
       - "8080:8080"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/taskforge
+      SPRING_DATASOURCE_URL: jdbc:postgresql://taskforge-db.c9ag6qwikwj0.us-east-2.rds.amazonaws.com:5432/taskforge
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: postgres
     depends_on:
