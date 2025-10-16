@@ -1,18 +1,4 @@
 services:
-  db:
-    image: postgres:17
-    container_name: taskforge-db
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: taskforge
-    ports:
-      - "5432:5432"
-    volumes:
-      - taskforge_pgdata:/var/lib/postgresql/data
-    networks:
-      - taskforge-network
-
   app:
     build: .
     container_name: taskforge-app
@@ -22,13 +8,9 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://taskforge-db.c9ag6qwikwj0.us-east-2.rds.amazonaws.com:5432/taskforge
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: postgres
-    depends_on:
-      - db
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
     networks:
       - taskforge-network
-
-volumes:
-  taskforge_pgdata:
 
 networks:
   taskforge-network:
