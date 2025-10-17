@@ -5,7 +5,7 @@ services:
     ports:
       - "8080:8080"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://taskforge-db.c9ag6qwikwj0.us-east-2.rds.amazonaws.com:5432/taskforge
+      SPRING_DATASOURCE_URL: jdbc:postgresql://taskforge.c9ag6qwikwj0.us-east-2.rds.amazonaws.com:5432/taskforge
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: postgres
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
